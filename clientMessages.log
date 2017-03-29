@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-03-29T14:46:11</date>
+  <millis>1490795171415</millis>
+  <sequence>1</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>15</thread>
+  <message>sample client message</message>
+</record>
+</log>

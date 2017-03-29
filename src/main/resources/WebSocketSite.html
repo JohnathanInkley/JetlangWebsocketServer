@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test WebSocket</title>
+    <script type="text/javascript">
+        var connectionToServer = new WebSocket('ws://127.0.0.1:4444');
+
+        connectionToServer.onopen = function () {
+            console.log('Connected!');
+            connectionToServer.send('New user');
+        };
+
+        connectionToServer.onerror = function (error) {
+            console.log('WebSocket Error ' + error);
+        };
+
+
+        connectionToServer.onmessage = function (e) {
+            console.log('Server: ' + e.data);
+        };
+
+        function functionOne() {
+            connectionToServer.send('Hello');
+        }
+    </script>
+</head>
+<body>
+    <p><a href="#" onClick="functionOne();">Send "Hello" to server</a></p>
+</body>
+</html>

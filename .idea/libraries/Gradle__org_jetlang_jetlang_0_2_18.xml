@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetlang:jetlang:0.2.18">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetlang/jetlang/0.2.18/74262e15e96d11997ab49367b0193e8c7fd49747/jetlang-0.2.18.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetlang/jetlang/0.2.18/7fc105b587cb11f848192617ffe74eb8b117c272/jetlang-0.2.18-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

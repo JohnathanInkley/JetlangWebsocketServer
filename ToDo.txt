@@ -1,0 +1,16 @@
+/- LoggerFiber that is subscribed to an incoming channel, then publishes to other channel when logging done
+/- Logs connections from websockets
+/- Functions to give both incoming and outcoming channels
+/- Function to log incoming message - in fact have a logging class?
+/- Class that takes a socket, processes the handshake request and sends the response
+
+- Implement ClientMessage class - what does it actually need?
+
+- Add socket to AcceptedConnections once handshake done
+- Iterate over all AcceptedConnections and check for messages
+- Once message received, create ClientMessage and publish to channel
+
+
+- Have a server class that keeps track of all connections and when a new connection appears, passes it to a fiber for processing
+
+- Have a class that contains the two channels, the server (which contains the websocket handler maybe) and the logger
