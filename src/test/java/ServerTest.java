@@ -26,10 +26,9 @@ public class ServerTest {
         messagesFromClientChannel.subscribe(fiber, callback);
 
         NewWebSocketConnectionsSetTest.launchTestPageToOpenWebSocket();
-
-        Thread.sleep(10000);
-        underTest.stop();
+        
         Assert.assertTrue(latch.await(10, TimeUnit.SECONDS));
+        underTest.stop();
 
     }
 }
