@@ -5,16 +5,18 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
 
-public class NewWebSocketConnectionsQueue {
+public class NewWebSocketConnectionsSet {
     private ServerSocket serverSocket;
     private ThreadFiber fiber;
-    private HashSet<Socket> acceptedConnections;
+    private HashSet<SocketWithStreams> acceptedConnections;
+    private WebSocketHandshaker handshaker;
     private boolean terminated = false;
 
-    public NewWebSocketConnectionsQueue(int port) throws IOException {
+    public NewWebSocketConnectionsSet(int port) throws IOException {
         fiber = new ThreadFiber();
         serverSocket = new ServerSocket(port);
         acceptedConnections = new HashSet<>();
+        handshaker = new WebSocketHandshaker();
     }
 
     public void start() {
@@ -30,7 +32,9 @@ public class NewWebSocketConnectionsQueue {
         try {
             Socket newConnection = serverSocket.accept();
             synchronized (this) {
-                acceptedConnections.add(newConnection);
+                SocketWithStreams fullConnection = new SocketWithStreams(newConnection, newConnection.getInputStream(), newConnection.getOutputStream());
+                handshaker.generateAndSendHandshakeResponse(fullConnection);
+                acceptedConnections.add(fullConnection);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -42,13 +46,21 @@ public class NewWebSocketConnectionsQueue {
         return !acceptedConnections.isEmpty();
     }
 
-    synchronized public Socket getNextAcceptedConnection() {
+    synchronized public SocketWithStreams getNextAcceptedConnection() {
         if (acceptedConnections.isEmpty()) {
             return new EmptySocket();
         }
 
-        Socket nextConnection = acceptedConnections.iterator().next();
+        SocketWithStreams nextConnection = acceptedConnections.iterator().next();
         acceptedConnections.remove(nextConnection);
         return nextConnection;
+    }
+
+    public void stop() {
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

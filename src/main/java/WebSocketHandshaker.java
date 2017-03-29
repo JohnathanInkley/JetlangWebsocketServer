@@ -1,20 +1,20 @@
 import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
-import java.net.Socket;
 import java.security.MessageDigest;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class WebSocketHandshaker {
-    public String generateAndSendHandshakeResponse(Socket webSocket) {
+
+    public String generateAndSendHandshakeResponse(SocketWithStreams webSocket) {
         try {
             String response;
             String request = getRequestFromSocket(webSocket);
             Matcher startOfHandshakeRequestMatcher = Pattern.compile("^GET").matcher(request);
             if (startOfHandshakeRequestMatcher.find()) {
                 response = generateResponse(request);
-                webSocket.getOutputStream().write(response.getBytes("UTF-8"));
+                webSocket.getOpenOutputStream().write(response.getBytes("UTF-8"));
             } else {
                 response = "Handshake failed";
             }
@@ -25,8 +25,8 @@ public class WebSocketHandshaker {
     }
 
 
-    private String getRequestFromSocket(Socket webSocket) throws IOException {
-        return new Scanner(webSocket.getInputStream(), "UTF-8").useDelimiter("\\r\\n\\r\\n").next();
+    private String getRequestFromSocket(SocketWithStreams webSocket) throws IOException {
+        return new Scanner(webSocket.getOpenInputStream(), "UTF-8").useDelimiter("\\r\\n\\r\\n").next();
     }
 
     private String generateResponse(String request) {
@@ -48,4 +48,5 @@ public class WebSocketHandshaker {
             throw new RuntimeException("Key could not be found");
         }
     }
+
 }

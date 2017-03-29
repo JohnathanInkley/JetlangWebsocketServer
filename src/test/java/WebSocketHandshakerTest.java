@@ -3,7 +3,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.Socket;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
@@ -14,19 +13,19 @@ public class WebSocketHandshakerTest {
     @Test
     public void handshakerShouldGenerateCorrectResponseFromRequest() {
         try {
-            Socket mockSocket = createMockSocketWithHTTPRequest();
-            WebSocketHandshaker handshaker = new WebSocketHandshaker();
-            String response = handshaker.generateAndSendHandshakeResponse(mockSocket);
+            SocketWithStreams mockSocket = createMockSocketWithHTTPRequest();
+            WebSocketHandshaker underTest = new WebSocketHandshaker();
+            String response = underTest.generateAndSendHandshakeResponse(mockSocket);
             Assert.assertEquals(getExpectedResponse(), response);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private Socket createMockSocketWithHTTPRequest() throws IOException {
-        final Socket mockSocket = mock(Socket.class);
-        final InputStream socketInputStream = mock (InputStream.class);
-        when(mockSocket.getInputStream()).thenReturn(socketInputStream);
+    private SocketWithStreams createMockSocketWithHTTPRequest() throws IOException {
+        final SocketWithStreams mockSocket = mock(SocketWithStreams.class);
+        final InputStream socketInputStream = mock(InputStream.class);
+        when(mockSocket.getOpenInputStream()).thenReturn(socketInputStream);
         when(socketInputStream.read(any())).thenAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             byte[] byteArrayUsedForReading = (byte[]) args[0];

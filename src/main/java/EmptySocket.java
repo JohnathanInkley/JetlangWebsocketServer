@@ -1,4 +1,6 @@
-import java.net.Socket;
+public class EmptySocket extends SocketWithStreams {
 
-public class EmptySocket extends Socket {
+    public EmptySocket() {
+        super(null, null, null);
+    }
 }
