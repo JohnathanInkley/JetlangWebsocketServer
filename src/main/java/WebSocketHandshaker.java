@@ -26,7 +26,9 @@ public class WebSocketHandshaker {
 
 
     private String getRequestFromSocket(SocketWithStreams webSocket) throws IOException {
-        return new Scanner(webSocket.getOpenInputStream(), "UTF-8").useDelimiter("\\r\\n\\r\\n").next();
+        String request = new Scanner(webSocket.getOpenInputStream(), "UTF-8").useDelimiter("\\r\\n\\r\\n").next();
+        webSocket.getOpenInputStream().skip(webSocket.getOpenInputStream().available());
+        return request;
     }
 
     private String generateResponse(String request) {

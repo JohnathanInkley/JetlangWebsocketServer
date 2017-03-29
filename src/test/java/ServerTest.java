@@ -19,7 +19,7 @@ public class ServerTest {
 
         ThreadFiber fiber = new ThreadFiber();
         fiber.start();
-        CountDownLatch latch = new CountDownLatch(3);
+        CountDownLatch latch = new CountDownLatch(2);
         Callback<ClientMessage> callback = (msg) -> {
             latch.countDown();
         };

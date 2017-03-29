@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-03-29T16:13:41</date>
-  <millis>1490800421966</millis>
+  <date>2017-03-29T16:27:14</date>
+  <millis>1490801234430</millis>
   <sequence>1</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
