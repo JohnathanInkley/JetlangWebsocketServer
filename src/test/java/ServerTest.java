@@ -13,8 +13,8 @@ public class ServerTest {
     @Test
     public void newConnectionShouldPublishMessageToChannel() throws IOException, InterruptedException {
         Server underTest = new Server(4444);
-        MemoryChannel<ClientMessage> messagesFromClientChannel = new MemoryChannel<>();
-        underTest.attachClientMessageChannel(messagesFromClientChannel);
+        MemoryChannel<ClientMessage> clientMessageChannel = new MemoryChannel<>();
+        underTest.attachClientMessageChannel(clientMessageChannel);
         underTest.start();
 
         ThreadFiber fiber = new ThreadFiber();
@@ -23,12 +23,30 @@ public class ServerTest {
         Callback<ClientMessage> callback = (msg) -> {
             latch.countDown();
         };
-        messagesFromClientChannel.subscribe(fiber, callback);
+        clientMessageChannel.subscribe(fiber, callback);
 
         NewWebSocketConnectionsSetTest.launchTestPageToOpenWebSocket();
-        
+
         Assert.assertTrue(latch.await(10, TimeUnit.SECONDS));
         underTest.stop();
+    }
 
+    @Test
+    public void receivingMessageOnChannelFromLoggerShouldSendMessageToWebSocket() throws IOException, InterruptedException {
+        Server underTest = new Server(4444);
+        MemoryChannel<ClientMessage> clientMessageChannel = new MemoryChannel<>();
+        MemoryChannel<String> loggerMessageChannel = new MemoryChannel<>();
+        underTest.attachClientMessageChannel(clientMessageChannel);
+        underTest.attachLoggerMessageChannel(loggerMessageChannel);
+        underTest.start();
+
+        ClientConnectionLogger connectionLogger = new ClientConnectionLogger();
+        connectionLogger.attachInputChannelAndSubscribe(clientMessageChannel);
+        connectionLogger.attachOutputChannel(loggerMessageChannel);
+
+        NewWebSocketConnectionsSetTest.launchTestPageToOpenWebSocket();
+
+        Thread.sleep(10000);
+        underTest.stop();
     }
 }

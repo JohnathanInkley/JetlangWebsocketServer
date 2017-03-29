@@ -37,6 +37,8 @@ public class ClientConnectionLoggerTest {
         Thread.sleep(500);
     }
 
+
+
     @Test
     public void onceMessageIsLoggedShouldPublishToChannelConfirmingMessageReceipt() throws InterruptedException {
         ClientConnectionLogger underTest = new ClientConnectionLogger();
