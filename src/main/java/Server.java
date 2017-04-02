@@ -82,8 +82,8 @@ public class Server {
     }
 
     public void stop() {
-        newConnectionsSet.stop();
         connectionProcessFiber.dispose();
+        newConnectionsSet.stop();
     }
 
 }

@@ -2,22 +2,13 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-03-29T17:13:41</date>
-  <millis>1490804021059</millis>
-  <sequence>2</sequence>
+  <date>2017-04-02T14:28:11</date>
+  <millis>1491139691043</millis>
+  <sequence>1</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
-  <thread>26</thread>
-  <message>New message from client 1</message>
+  <thread>14</thread>
+  <message>sample client message</message>
 </record>
-<record>
-  <date>2017-03-29T17:13:41</date>
-  <millis>1490804021073</millis>
-  <sequence>3</sequence>
-  <level>SEVERE</level>
-  <class>ClientConnectionLogger</class>
-  <method>logMessage</method>
-  <thread>26</thread>
-  <message>New message from client 1</message>
-</record>
+</log>

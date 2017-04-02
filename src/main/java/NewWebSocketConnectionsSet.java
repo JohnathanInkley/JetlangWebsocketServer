@@ -58,6 +58,8 @@ public class NewWebSocketConnectionsSet {
 
     public void stop() {
         try {
+            terminated = true;
+            fiber.dispose();
             serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
