@@ -12,6 +12,9 @@ repositories {
 
 mainClassName = "RunServerAndLogger"
 
+task stage(dependsOn: ['build', 'clean', 'test'])
+build.mustRunAfter clean
+
 run {
     if (project.hasProperty("appArgs")) {
         args Eval.me(appArgs)
