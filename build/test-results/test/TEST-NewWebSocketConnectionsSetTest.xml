@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="NewWebSocketConnectionsSetTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-03T09:32:43" hostname="dyn1168-163.wlan.ic.ac.uk" time="1.332">
+  <properties/>
+  <testcase name="newConnectionShouldAppearInQueue" classname="NewWebSocketConnectionsSetTest" time="1.332"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

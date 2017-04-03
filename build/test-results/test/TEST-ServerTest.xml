@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ServerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-03T09:32:44" hostname="dyn1168-163.wlan.ic.ac.uk" time="15.178">
+  <properties/>
+  <testcase name="newConnectionShouldPublishMessageToChannel" classname="ServerTest" time="5.128"/>
+  <testcase name="receivingMessageOnChannelFromLoggerShouldSendMessageToWebSocket" classname="ServerTest" time="10.049"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[java.net.SocketException: Socket closed
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at NewWebSocketConnectionsSet.processIncomingConnections(NewWebSocketConnectionsSet.java:33)
+	at NewWebSocketConnectionsSet.lambda$start$0(NewWebSocketConnectionsSet.java:26)
+	at org.jetlang.core.BatchExecutorImpl.execute(BatchExecutorImpl.java:11)
+	at org.jetlang.core.RunnableExecutorImpl.run(RunnableExecutorImpl.java:39)
+	at org.jetlang.fibers.ThreadFiber$1.run(ThreadFiber.java:28)
+	at java.lang.Thread.run(Thread.java:745)
+java.net.SocketException: Socket closed
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at NewWebSocketConnectionsSet.processIncomingConnections(NewWebSocketConnectionsSet.java:33)
+	at NewWebSocketConnectionsSet.lambda$start$0(NewWebSocketConnectionsSet.java:26)
+	at org.jetlang.core.BatchExecutorImpl.execute(BatchExecutorImpl.java:11)
+	at org.jetlang.core.RunnableExecutorImpl.run(RunnableExecutorImpl.java:39)
+	at org.jetlang.fibers.ThreadFiber$1.run(ThreadFiber.java:28)
+	at java.lang.Thread.run(Thread.java:745)
+Apr 03, 2017 10:32:50 AM ClientConnectionLogger logMessage
+SEVERE: New message from client 1
+Apr 03, 2017 10:32:50 AM ClientConnectionLogger logMessage
+SEVERE: New message from client 1
+Apr 03, 2017 10:32:52 AM ClientConnectionLogger logMessage
+SEVERE: New message from client 2
+java.net.SocketException: Broken pipe (Write failed)
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:109)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:141)
+	at Server.writeMessageToAllOpenWebSockets(Server.java:45)
+	at Server.lambda$attachLoggerMessageChannel$0(Server.java:35)
+	at org.jetlang.channels.ChannelSubscription$1.run(ChannelSubscription.java:31)
+	at org.jetlang.core.BatchExecutorImpl.execute(BatchExecutorImpl.java:11)
+	at org.jetlang.core.RunnableExecutorImpl.run(RunnableExecutorImpl.java:39)
+	at org.jetlang.fibers.ThreadFiber$1.run(ThreadFiber.java:28)
+	at java.lang.Thread.run(Thread.java:745)
+Apr 03, 2017 10:32:53 AM ClientConnectionLogger logMessage
+SEVERE: New message from client 2
+java.net.SocketException: Broken pipe (Write failed)
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:109)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:141)
+	at Server.writeMessageToAllOpenWebSockets(Server.java:45)
+	at Server.lambda$attachLoggerMessageChannel$0(Server.java:35)
+	at org.jetlang.channels.ChannelSubscription$1.run(ChannelSubscription.java:31)
+	at org.jetlang.core.BatchExecutorImpl.execute(BatchExecutorImpl.java:11)
+	at org.jetlang.core.RunnableExecutorImpl.run(RunnableExecutorImpl.java:39)
+	at org.jetlang.fibers.ThreadFiber$1.run(ThreadFiber.java:28)
+	at java.lang.Thread.run(Thread.java:745)
+Apr 03, 2017 10:32:53 AM ClientConnectionLogger logMessage
+SEVERE: New message from client 2
+java.net.SocketException: Broken pipe (Write failed)
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:109)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:141)
+	at Server.writeMessageToAllOpenWebSockets(Server.java:45)
+	at Server.lambda$attachLoggerMessageChannel$0(Server.java:35)
+	at org.jetlang.channels.ChannelSubscription$1.run(ChannelSubscription.java:31)
+	at org.jetlang.core.BatchExecutorImpl.execute(BatchExecutorImpl.java:11)
+	at org.jetlang.core.RunnableExecutorImpl.run(RunnableExecutorImpl.java:39)
+	at org.jetlang.fibers.ThreadFiber$1.run(ThreadFiber.java:28)
+	at java.lang.Thread.run(Thread.java:745)
+Apr 03, 2017 10:32:53 AM ClientConnectionLogger logMessage
+SEVERE: New message from client 2
+java.net.SocketException: Broken pipe (Write failed)
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:109)
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:141)
+	at Server.writeMessageToAllOpenWebSockets(Server.java:45)
+	at Server.lambda$attachLoggerMessageChannel$0(Server.java:35)
+	at org.jetlang.channels.ChannelSubscription$1.run(ChannelSubscription.java:31)
+	at org.jetlang.core.BatchExecutorImpl.execute(BatchExecutorImpl.java:11)
+	at org.jetlang.core.RunnableExecutorImpl.run(RunnableExecutorImpl.java:39)
+	at org.jetlang.fibers.ThreadFiber$1.run(ThreadFiber.java:28)
+	at java.lang.Thread.run(Thread.java:745)
+]]></system-err>
+</testsuite>

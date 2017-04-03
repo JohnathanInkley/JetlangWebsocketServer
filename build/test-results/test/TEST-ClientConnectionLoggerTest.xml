@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ClientConnectionLoggerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-03T09:32:41" hostname="dyn1168-163.wlan.ic.ac.uk" time="1.299">
+  <properties/>
+  <testcase name="onceMessageIsLoggedShouldPublishToChannelConfirmingMessageReceipt" classname="ClientConnectionLoggerTest" time="0.791"/>
+  <testcase name="shouldLogAMessageFromTheInputChannel" classname="ClientConnectionLoggerTest" time="0.507"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Apr 03, 2017 10:32:42 AM ClientConnectionLogger logMessage
+SEVERE: sample
+Apr 03, 2017 10:32:42 AM ClientConnectionLogger logMessage
+SEVERE: sample client message
+]]></system-err>
+</testsuite>

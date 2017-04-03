@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test WebSocket</title>
+    <script type="text/javascript">
+        var connectionToServer = new WebSocket('ws://127.0.0.1:4444');
+
+        connectionToServer.onopen = function () {
+            console.log('Connected!');
+            connectionToServer.send('New user');
+            var messageBox = document.getElementById('messages');
+            messageBox.value = "";
+
+        };
+
+        connectionToServer.onerror = function (error) {
+            console.log('WebSocket Error ' + error);
+        };
+
+
+        connectionToServer.onmessage = function (e) {
+            //alert('Server sent you a message: ' + e.data);
+            var messageBox = document.getElementById('messages');
+            messageBox.value = messageBox.value.concat(e.data);
+            console.log('Server: ' + e.data);
+        };
+
+        function sendMessage() {
+            var message = document.getElementById('userMessage');
+            connectionToServer.send(message.value);
+        }
+    </script>
+</head>
+<body>
+    <p>Type your message here</p>
+    <p><textarea id="userMessage" style="width: 400px; height: 20px;"></textarea></p>
+    <p><button onclick="sendMessage()">send message</button></p>
+
+    <p><textarea id="messages" style="width: 400px; height: 400px;"></textarea></p>
+
+
+</body>
+</html>
