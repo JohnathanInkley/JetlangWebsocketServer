@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-03T21:46:10</date>
+  <millis>1491252370106</millis>
+  <sequence>2</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>26</thread>
+  <message>New message from client 1: New user
+</message>
+</record>
+<record>
+  <date>2017-04-03T21:46:10</date>
+  <millis>1491252370308</millis>
+  <sequence>3</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>26</thread>
+  <message>New message from client 1: �
+</message>
+</record>
