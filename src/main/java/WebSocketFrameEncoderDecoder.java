@@ -1,6 +1,6 @@
 import java.io.UnsupportedEncodingException;
 
-public class WebSocketFrameGenerator {
+public class WebSocketFrameEncoderDecoder {
     public static final byte TEXT_TYPE_BYTE = (byte) 129;
 
     public byte[] generateFrame(String message) {
@@ -46,4 +46,40 @@ public class WebSocketFrameGenerator {
 
         return result;
     }
+
+
+    public byte[] decodeFrame(byte[] frame) {
+        long frameLength = getLengthOfFrame(frame);
+        byte[] result = new byte[(int) frameLength];
+        byte[] maskBits = new byte[4];
+        int offset = (frameLength < 126) ? 1 : 2;
+
+        for (int i = 0; i < 4; i++) {
+            maskBits[i] = frame[i + 1 + offset];
+        }
+
+        for (int i = 0; i < frameLength; i++) {
+            result[i] = (byte) (frame[i + offset + 5] ^ maskBits[i % 4]);
+        }
+
+        return result;
+    }
+
+    public long getLengthOfFrame(byte[] frame) {
+        if ((frame[1] & 0xff ) < 0xFE) {
+            return (long) (frame[1] - 0x80) & 0xff;
+        } else if ((frame[1] & 0xff) == 0xFE) {
+            return ((((long) frame[2]) & 0xff) << 8) + ((long) frame[3] & 0xff);
+        } else if ((frame[1] & 0xff) == 0xFF) {
+            long currentTotal = 0;
+            for (int i = 0; i < 8; i++) {
+                currentTotal += ((frame[i + 2] & 0xff) << 8*(7-i));
+            }
+            return currentTotal;
+        } else {
+            return 0;
+        }
+
+    }
+
 }

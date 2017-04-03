@@ -12,7 +12,7 @@ public class Server {
     private ArrayList<SocketWithStreams> acceptedConnections;
     private ThreadFiber connectionProcessFiber;
     private ThreadFiber webSocketMessageFiber;
-    private WebSocketFrameGenerator frameGenerator;
+    private WebSocketFrameEncoderDecoder frameEncoderDecoder;
     private boolean terminated = false;
 
     public Server(int port) {
@@ -21,7 +21,7 @@ public class Server {
             connectionProcessFiber = new ThreadFiber();
             webSocketMessageFiber = new ThreadFiber();
             acceptedConnections = new ArrayList<>();
-            frameGenerator = new WebSocketFrameGenerator();
+            frameEncoderDecoder = new WebSocketFrameEncoderDecoder();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class Server {
     private void writeMessageToAllOpenWebSockets(String msg) {
         for (int i = 0; i < acceptedConnections.size(); i++) {
             try {
-                acceptedConnections.get(i).getOpenOutputStream().write(frameGenerator.generateFrame(msg));
+                acceptedConnections.get(i).getOpenOutputStream().write(frameEncoderDecoder.generateFrame(msg));
             } catch (Exception e) {
                 acceptedConnections.remove(i);
             }
@@ -70,11 +70,14 @@ public class Server {
             InputStream currentSocketInputStream = acceptedConnections.get(i - 1).getOpenInputStream();
             try {
                 if (currentSocketInputStream.available() > 0) {
-                    clientMessageChannel.publish(new ClientMessage("New message from client " + i + "\n"));
-                    currentSocketInputStream.skip(currentSocketInputStream.available());
+                    byte[] rawFrame = new byte[currentSocketInputStream.available()];
+                    currentSocketInputStream.read(rawFrame);
+                    byte[] processedMessage = frameEncoderDecoder.decodeFrame(rawFrame);
+                    clientMessageChannel.publish(new ClientMessage("New message from client " + i + ": "
+                            + new String(processedMessage, "UTF-8") + "\n"));
                 }
             } catch (Exception e) {
-                //e.printStackTrace();
+                e.printStackTrace();
             }
         }
     }

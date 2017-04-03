@@ -26,13 +26,19 @@
             console.log('Server: ' + e.data);
         };
 
-        function functionOne() {
-            connectionToServer.send('Hello');
+        function sendMessage() {
+            var message = document.getElementById('userMessage');
+            connectionToServer.send(message.value);
         }
     </script>
 </head>
 <body>
-    <p><a href="#" onClick="functionOne();">Send "Hello" to server</a></p>
-    <textarea id="messages" style="width: 400px; height: 400px;"></textarea>
+    <p>Type your message here</p>
+    <p><textarea id="userMessage" style="width: 400px; height: 20px;"></textarea></p>
+    <p><button onclick="sendMessage()">send message</button></p>
+
+    <p><textarea id="messages" style="width: 400px; height: 400px;"></textarea></p>
+
+
 </body>
 </html>

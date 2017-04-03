@@ -2,90 +2,90 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-03T13:52:04</date>
-  <millis>1491223924171</millis>
+  <date>2017-04-03T15:15:49</date>
+  <millis>1491228949764</millis>
   <sequence>0</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 1
+  <message>New message from client 1: New user
 </message>
 </record>
 <record>
-  <date>2017-04-03T13:52:06</date>
-  <millis>1491223926413</millis>
+  <date>2017-04-03T15:16:18</date>
+  <millis>1491228978132</millis>
   <sequence>1</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 1
+  <message>New message from client 1: �
 </message>
 </record>
 <record>
-  <date>2017-04-03T13:52:07</date>
-  <millis>1491223927918</millis>
+  <date>2017-04-03T15:16:18</date>
+  <millis>1491228978182</millis>
   <sequence>2</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 1
+  <message>New message from client 2: New user
 </message>
 </record>
 <record>
-  <date>2017-04-03T13:52:19</date>
-  <millis>1491223939892</millis>
+  <date>2017-04-03T15:16:52</date>
+  <millis>1491229012558</millis>
   <sequence>3</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 2
+  <message>New message from client 1: �
 </message>
 </record>
 <record>
-  <date>2017-04-03T13:52:21</date>
-  <millis>1491223941304</millis>
+  <date>2017-04-03T15:16:52</date>
+  <millis>1491229012603</millis>
   <sequence>4</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 2
+  <message>New message from client 2: New user
 </message>
 </record>
 <record>
-  <date>2017-04-03T13:52:25</date>
-  <millis>1491223945003</millis>
+  <date>2017-04-03T15:17:14</date>
+  <millis>1491229034979</millis>
   <sequence>5</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 1
+  <message>New message from client 1: �
 </message>
 </record>
 <record>
-  <date>2017-04-03T13:52:26</date>
-  <millis>1491223946955</millis>
+  <date>2017-04-03T15:17:15</date>
+  <millis>1491229035027</millis>
   <sequence>6</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 2
+  <message>New message from client 2: New user
 </message>
 </record>
 <record>
-  <date>2017-04-03T13:52:27</date>
-  <millis>1491223947518</millis>
+  <date>2017-04-03T15:17:18</date>
+  <millis>1491229038034</millis>
   <sequence>7</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
   <thread>10</thread>
-  <message>New message from client 1
+  <message>New message from client 1: Hello
 </message>
 </record>
