@@ -12,8 +12,7 @@ repositories {
 
 mainClassName = "RunServerAndLogger"
 
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
+task stage(dependsOn: ['build'])
 
 run {
     if (project.hasProperty("appArgs")) {
