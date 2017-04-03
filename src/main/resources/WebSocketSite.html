@@ -17,7 +17,7 @@
 
 
         connectionToServer.onmessage = function (e) {
-            alert('Server sent you a message!');
+            alert('Server sent you a message: ' + e.data);
             console.log('Server: ' + e.data);
         };
 
