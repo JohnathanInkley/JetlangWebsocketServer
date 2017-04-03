@@ -9,6 +9,9 @@
         connectionToServer.onopen = function () {
             console.log('Connected!');
             connectionToServer.send('New user');
+            var messageBox = document.getElementById('messages');
+            messageBox.value = "";
+
         };
 
         connectionToServer.onerror = function (error) {
@@ -17,7 +20,9 @@
 
 
         connectionToServer.onmessage = function (e) {
-            alert('Server sent you a message: ' + e.data);
+            //alert('Server sent you a message: ' + e.data);
+            var messageBox = document.getElementById('messages');
+            messageBox.value = messageBox.value.concat(e.data);
             console.log('Server: ' + e.data);
         };
 
@@ -28,5 +33,6 @@
 </head>
 <body>
     <p><a href="#" onClick="functionOne();">Send "Hello" to server</a></p>
+    <textarea id="messages" style="width: 400px; height: 400px;"></textarea>
 </body>
 </html>
