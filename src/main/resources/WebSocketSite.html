@@ -8,7 +8,7 @@
 
         connectionToServer.onopen = function () {
             console.log('Connected!');
-            connectionToServer.send('New user');
+            connectionToServer.send('New user has joined the chat');
             var messageBox = document.getElementById('messages');
             messageBox.value = "";
 
@@ -29,6 +29,7 @@
         function sendMessage() {
             var message = document.getElementById('userMessage');
             connectionToServer.send(message.value);
+            message.value = "";
         }
     </script>
 </head>

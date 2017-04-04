@@ -23,17 +23,17 @@ public class NewWebSocketConnectionsSet {
         fiber.start();
         fiber.execute(() -> {
             while(!terminated) {
-                processIncomingConnections();
+                processAnIncomingConnection();
             }
         });
     }
 
-    private void processIncomingConnections() {
+    private void processAnIncomingConnection() {
         try {
             Socket newConnection = serverSocket.accept();
+            SocketWithStreams fullConnection = new SocketWithStreams(newConnection, newConnection.getInputStream(), newConnection.getOutputStream());
+            handshaker.generateAndSendHandshakeResponse(fullConnection);
             synchronized (this) {
-                SocketWithStreams fullConnection = new SocketWithStreams(newConnection, newConnection.getInputStream(), newConnection.getOutputStream());
-                handshaker.generateAndSendHandshakeResponse(fullConnection);
                 acceptedConnections.add(fullConnection);
             }
         } catch (IOException e) {
@@ -62,6 +62,7 @@ public class NewWebSocketConnectionsSet {
             fiber.dispose();
             serverSocket.close();
         } catch (IOException e) {
+            System.err.println("Error closing server socket");
             e.printStackTrace();
         }
     }

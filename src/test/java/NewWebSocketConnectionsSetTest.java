@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import javax.script.ScriptException;
@@ -9,7 +10,7 @@ public class NewWebSocketConnectionsSetTest {
 
     @Test
     public void newConnectionShouldAppearInQueue() throws ScriptException, InterruptedException, IOException {
-        /*
+
         NewWebSocketConnectionsSet underTest = new NewWebSocketConnectionsSet(4444);
         underTest.start();
         Assert.assertFalse(underTest.connectionWaiting());
@@ -19,7 +20,7 @@ public class NewWebSocketConnectionsSetTest {
         Thread.sleep(1000);
         underTest.stop();
         Assert.assertTrue(underTest.connectionWaiting());
-        */
+
     }
 
     public static void launchTestPageToOpenWebSocket() throws IOException {

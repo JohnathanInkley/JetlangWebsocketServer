@@ -2,24 +2,81 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-03T21:46:10</date>
-  <millis>1491252370106</millis>
+  <date>2017-04-04T12:44:41</date>
+  <millis>1491306281755</millis>
+  <sequence>0</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>10</thread>
+  <message>New message from client 1: New user has joined the chat
+</message>
+</record>
+<record>
+  <date>2017-04-04T12:44:48</date>
+  <millis>1491306288089</millis>
+  <sequence>1</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>10</thread>
+  <message>New message from client 2: New user has joined the chat
+</message>
+</record>
+<record>
+  <date>2017-04-04T12:44:52</date>
+  <millis>1491306292855</millis>
   <sequence>2</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
-  <thread>26</thread>
-  <message>New message from client 1: New user
+  <thread>10</thread>
+  <message>New message from client 2: Hey there 
 </message>
 </record>
 <record>
-  <date>2017-04-03T21:46:10</date>
-  <millis>1491252370308</millis>
+  <date>2017-04-04T12:44:59</date>
+  <millis>1491306299746</millis>
   <sequence>3</sequence>
   <level>SEVERE</level>
   <class>ClientConnectionLogger</class>
   <method>logMessage</method>
-  <thread>26</thread>
+  <thread>10</thread>
+  <message>New message from client 1: Sup dawg
+</message>
+</record>
+<record>
+  <date>2017-04-04T12:45:06</date>
+  <millis>1491306306614</millis>
+  <sequence>4</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>10</thread>
+  <message>New message from client 2: lol
+
+lol
+</message>
+</record>
+<record>
+  <date>2017-04-04T12:45:34</date>
+  <millis>1491306334203</millis>
+  <sequence>5</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>10</thread>
   <message>New message from client 1: �
+</message>
+</record>
+<record>
+  <date>2017-04-04T12:45:35</date>
+  <millis>1491306335820</millis>
+  <sequence>6</sequence>
+  <level>SEVERE</level>
+  <class>ClientConnectionLogger</class>
+  <method>logMessage</method>
+  <thread>10</thread>
+  <message>New message from client 2: �
 </message>
 </record>
